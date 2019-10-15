@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdAddCircleOutline } from 'react-icons/md';
 import { Form, Input } from '@rocketseat/unform';
+import * as Yup from 'yup';
 import PropTypes from 'prop-types';
 import 'react-datepicker/dist/react-datepicker.css';
 import { toast } from 'react-toastify';
@@ -11,8 +12,24 @@ import DateInput from './DateInput';
 import api from '~/services/api';
 import history from '~/services/history';
 
+const schema = Yup.object().shape({
+  title: Yup.string().required('É necessário que o seu meetup tenha um título'),
+  description: Yup.string().required(
+    'É necessário que o seu meetup tenha uma descrição'
+  ),
+  location: Yup.string().required(
+    'É necessário que o seu meetup tenha uma localização'
+  ),
+  date: Yup.date().required(
+    'É necessário que o seu meetup tenha uma data válida'
+  ),
+  image_id: Yup.number().required(
+    'É necessário que o seu meetup tenha uma imagem'
+  ),
+  meetup_id: Yup.number(),
+});
+
 export default function Edit({ location: meetup }) {
-  console.log('teste', meetup);
   let initialData;
   if (meetup.state) {
     initialData = {
@@ -24,15 +41,8 @@ export default function Edit({ location: meetup }) {
       meetup_id: meetup.state.state.id,
     };
   }
-  console.log(initialData);
 
   async function handleSubmit(data) {
-    console.log(data.date);
-    const meetupData = {
-      ...data,
-      date: JSON.stringify(data.date),
-    };
-    console.log(meetupData);
     try {
       if (meetup.state) {
         await api.put(`/meetups/${initialData.meetup_id}`, data);
@@ -49,7 +59,7 @@ export default function Edit({ location: meetup }) {
 
   return (
     <Container>
-      <Form onSubmit={handleSubmit} initialData={initialData}>
+      <Form schema={schema} onSubmit={handleSubmit} initialData={initialData}>
         <BannerInput name="image_id" />
         <Input name="title" placeholder="Título do Meetup" />
         <Description

@@ -10,6 +10,11 @@ export const Container = styled.div`
     flex-direction: column;
     margin-top: 30px;
 
+    span {
+      color: #fca6b4;
+      margin-bottom: 10px;
+    }
+
     input {
       height: 50px;
       background: rgba(0, 0, 0, 0.2);
@@ -54,7 +59,8 @@ export const Container = styled.div`
           align-items: center;
 
           span {
-            margin-left: 10px;
+            margin: 0 0 0 10px;
+            color: #ffffff;
           }
         }
       }
