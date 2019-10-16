@@ -20,9 +20,9 @@ const schema = Yup.object().shape({
   location: Yup.string().required(
     'É necessário que o seu meetup tenha uma localização'
   ),
-  date: Yup.date().required(
-    'É necessário que o seu meetup tenha uma data válida'
-  ),
+  date: Yup.date()
+    .required('É necessário que o seu meetup tenha uma data válida')
+    .typeError('Data inválida'),
   image_id: Yup.number().required(
     'É necessário que o seu meetup tenha uma imagem'
   ),

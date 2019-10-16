@@ -37,17 +37,17 @@ export const Container = styled.div`
       }
     }
 
-    .btn-edit {
-      background: #f94d6a;
-      margin-right: 10px;
+    .btn-cancel {
+      background: #d44059;
 
       &:hover {
-        background: ${darken(0.07, '#f94d6a')};
+        background: ${darken(0.07, '#D44059')};
       }
     }
 
-    .btn-cancel {
+    .btn-edit {
       background: #4dbaf9;
+      margin-right: 10px;
 
       &:hover {
         background: ${darken(0.07, '#4DBAF9')};

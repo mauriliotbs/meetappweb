@@ -24,6 +24,11 @@ export const Container = styled.div`
         color: rgba(255, 255, 255, 0.7);
       }
     }
+
+    span {
+      color: #fca6b4;
+      margin-bottom: 10px;
+    }
   }
 `;
 
@@ -36,6 +41,7 @@ export const Description = styled(Input)`
   border: 0;
   color: #fff;
   resize: none;
+  line-height: 1.4;
 
   &::placeholder {
     color: rgba(255, 255, 255, 0.7);
@@ -72,7 +78,8 @@ export const ButtonDiv = styled.div`
       align-items: center;
 
       span {
-        margin-left: 10px;
+        margin: 0 0 0 10px;
+        color: #ffffff;
       }
     }
   }
