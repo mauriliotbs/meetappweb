@@ -46,13 +46,6 @@ export default function Profile() {
     });
   }
 
-  // useEffect(() => {
-  //   // Reset form because of passwords changes, keeping name and email
-  //   document.getElementsByName('oldPassword')[0].value = '';
-  //   document.getElementsByName('password')[0].value = '';
-  //   document.getElementsByName('confirmPassword')[0].value = '';
-  // }, [profile]);
-
   return (
     <Container>
       <Form schema={schema} initialData={profile} onSubmit={handleSubmit}>
