@@ -13,7 +13,6 @@ export default function BannerInput({ name }) {
 
   const ref = useRef(null);
 
-  console.log('file', file);
   useEffect(() => {
     registerField({
       name: fieldName,
@@ -30,10 +29,8 @@ export default function BannerInput({ name }) {
 
     data.append('file', e.target.files[0]);
     const response = await api.post('/files', data);
-
     const { id, url } = response.data;
-    console.log(id);
-    console.log(url);
+
     setFile(id);
     setPreview(url);
   }
